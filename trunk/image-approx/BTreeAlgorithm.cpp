@@ -46,24 +46,25 @@ void BTreeAlgorithm::exec(BTree *bt){
 	        Point p=divStrat->divide(bt->getRectangle());
 	        Rectangle recs[2];
 
-                recs[0]=Rectangle(bt->getRectangle().getSO(),Point(
-                                bt->getRectangle().getNE().getX(),p.getY()));
+                recs[0]=Rectangle(Point(bt->getRectangle().getSO().getX(),
+                                p.getY()),
+                                bt->getRectangle().getNE());
 
                 recs[1]=Rectangle(bt->getRectangle().getSO(),Point(p.getX(),
                                 bt->getRectangle().getNE().getY()));
 
 	        Rectangle recs2[2];
 
-                recs2[0]=Rectangle(Point(bt->getRectangle().getSO().getX(),
-	        		p.getY()),
-                                bt->getRectangle().getNE());
+                recs2[0]=Rectangle(bt->getRectangle().getSO(),Point(
+                                bt->getRectangle().getNE().getX(),p.getY()));
 
                 recs2[1]=Rectangle(Point(p.getX(),
                                 bt->getRectangle().getSO().getY()),
                                 bt->getRectangle().getNE());
 
-	        bt->divide(p,
-	        		criterio->betterChoice(recs,recs2,2)==0 && bt->getRectangle().height()>minSize);
+                bt->divide(p, bt->getRectangle().width()>minSize ||
+                                (criterio->betterChoice(recs,recs2,2)==0 &&
+                                bt->getRectangle().height()>minSize));
 
 	        assert(!bt->isLeaf());
 	        assert(bt->son(0)->isLeaf());
