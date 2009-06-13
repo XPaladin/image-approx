@@ -18,7 +18,7 @@ protected:
     void exec(BTree *bt);
     BTreeAlgorithm();
 public:
-	BTreeAlgorithm(Criterio *crit,int h,int w,int _minSize);
+        BTreeAlgorithm(Criterio *crit,int w,int h,int _minSize);
 	virtual ~BTreeAlgorithm();
 	virtual BTree* exec();
 };
