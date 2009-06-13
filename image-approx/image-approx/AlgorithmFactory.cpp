@@ -10,7 +10,7 @@ AlgorithmFactory::~AlgorithmFactory()
 {
 }
 AlgorithmFactory* AlgorithmFactory::getInstance(){
-	if(instance=0)
+        if(instance==0)
 		instance=new AlgorithmFactory();
 	return instance;
 }
