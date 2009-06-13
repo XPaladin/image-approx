@@ -25,7 +25,7 @@ public:
     		int maxDif, int ignore);
 
 private:
-	Algorithm *algorithm;
+    Algorithm *algorithm;
     PaintWidget *paintW;
     Image *image;
     Ui::MainWindow *ui;
