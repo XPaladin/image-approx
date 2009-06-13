@@ -8,6 +8,8 @@ protected:
 public:
     virtual bool cumple(const Rectangle::Rectangle r)const=0;
     virtual ~Criterio(){};
+    virtual int betterChoice(const Rectangle::Rectangle recs[],
+    		const Rectangle::Rectangle recs[], int n)=0;
 };
 
 #endif // CRITERIO_H

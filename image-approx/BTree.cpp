@@ -16,7 +16,7 @@ BTree::BTree(Rectangle _rectangle) {
     assert(invariante());
 }
 bool BTree::invariante()const{
-	assert(false);//TODO
+        //assert(false);//TODO
 	return true;
 }
 Rectangle::Rectangle BTree::getRectangle() const{

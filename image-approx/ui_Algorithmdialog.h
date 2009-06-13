@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'Algorithmdialog.ui'
 **
-** Created: Fri 12. Jun 04:17:45 2009
+** Created: Fri 12. Jun 22:52:04 2009
 **      by: Qt User Interface Compiler version 4.5.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -40,6 +40,10 @@ public:
     QRadioButton *MaxVarRadio;
     QCheckBox *IgnoreCheck;
     QSpinBox *PercentSpin;
+    QWidget *gridLayoutWidget_2;
+    QGridLayout *gridLayout_2;
+    QRadioButton *QuadTreeRadio;
+    QRadioButton *BTreeRadio;
 
     void setupUi(QDialog *AlgorithmDialog)
     {
@@ -102,6 +106,23 @@ public:
         PercentSpin->setMinimum(0);
         PercentSpin->setMaximum(25);
         PercentSpin->setValue(25);
+        gridLayoutWidget_2 = new QWidget(AlgorithmDialog);
+        gridLayoutWidget_2->setObjectName(QString::fromUtf8("gridLayoutWidget_2"));
+        gridLayoutWidget_2->setGeometry(QRect(150, 90, 86, 44));
+        gridLayout_2 = new QGridLayout(gridLayoutWidget_2);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        QuadTreeRadio = new QRadioButton(gridLayoutWidget_2);
+        QuadTreeRadio->setObjectName(QString::fromUtf8("QuadTreeRadio"));
+        QuadTreeRadio->setChecked(true);
+
+        gridLayout_2->addWidget(QuadTreeRadio, 0, 0, 1, 1);
+
+        BTreeRadio = new QRadioButton(gridLayoutWidget_2);
+        BTreeRadio->setObjectName(QString::fromUtf8("BTreeRadio"));
+
+        gridLayout_2->addWidget(BTreeRadio, 1, 0, 1, 1);
+
 
         retranslateUi(AlgorithmDialog);
         QObject::connect(buttonBox, SIGNAL(accepted()), AlgorithmDialog, SLOT(accept()));
@@ -121,6 +142,8 @@ public:
         MaxDifRadio->setText(QApplication::translate("AlgorithmDialog", "MaxDif", 0, QApplication::UnicodeUTF8));
         MaxVarRadio->setText(QApplication::translate("AlgorithmDialog", "MaxVar", 0, QApplication::UnicodeUTF8));
         IgnoreCheck->setText(QApplication::translate("AlgorithmDialog", "Ignore %", 0, QApplication::UnicodeUTF8));
+        QuadTreeRadio->setText(QApplication::translate("AlgorithmDialog", "QuadTree", 0, QApplication::UnicodeUTF8));
+        BTreeRadio->setText(QApplication::translate("AlgorithmDialog", "BTree", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(AlgorithmDialog);
     } // retranslateUi
 

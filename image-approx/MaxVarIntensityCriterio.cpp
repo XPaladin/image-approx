@@ -12,6 +12,22 @@ bool MaxVarIntensityCriterio::cumple(const Rectangle::Rectangle rec)const{
 bool MaxVarIntensityCriterio::invariante(){
 	return IntensityCriterio::invariante();
 }
+int MaxVarIntensityCriterio::betterChoice(
+		const Rectangle::Rectangle recs[],
+		const Rectangle::Rectangle recs2[],
+		int n){
+	double minVar, varAct;
+	int minIndex=0;
+	minVar=varianza(recs[0])+varianza(recs2[0]);
+	for(int i=1;i<n;i++){
+		varAct=varianza(recs[i])+varianza(recs2[i]);
+		if(varAct<minVar){
+			minIndex=i;
+			minVar=varAct;
+		}
+	}
+	return minIndex;
+}
 double MaxVarIntensityCriterio::varianza(const Rectangle::Rectangle rec)const{
 	double n = 0.0;
 	double mean = 0.0;
