@@ -6,6 +6,7 @@
 #include "Image.h"
 #include "CriterioFactory.h"
 #include "AlgorithmFactory.h"
+#include "NetIteratorFactory.h"
 #include <assert.h>
 
 namespace Ui

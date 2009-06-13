@@ -12,7 +12,7 @@ BTreeAlgorithm::~BTreeAlgorithm()
 }
 BTreeAlgorithm::BTreeAlgorithm(Criterio *crit,int w,int h,int _minSize):Algorithm(crit){
 	minSize=_minSize;
-        btree=new BTree(Rectangle(Point(0,0),Point(w,h)));
+	btree=new BTree(Rectangle(Point(0,0),Point(w,h)));
 	divStrat=new EquiDivisionStrategy();
 }
 BTree* BTreeAlgorithm::exec(){
@@ -30,7 +30,7 @@ bool BTreeAlgorithm::invariante()const{
 
 }
 void BTreeAlgorithm::exec(BTree *bt){
-	 if(bt->getRectangle().width()<=minSize ||
+	 if(bt->getRectangle().width()<=minSize &&
 	       bt->getRectangle().height()<=minSize){
 	       //     printf("No dividi :(");
 	    	return;
@@ -63,7 +63,7 @@ void BTreeAlgorithm::exec(BTree *bt){
                                 bt->getRectangle().getNE());
 
 	        bt->divide(p,
-	        		criterio->betterChoice(recs,recs2,2)==0);
+	        		criterio->betterChoice(recs,recs2,2)==0 && bt->getRectangle().height()>minSize);
 
 	        assert(!bt->isLeaf());
 	        assert(bt->son(0)->isLeaf());
