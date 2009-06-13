@@ -37,4 +37,19 @@ bool MaxDifIntensityCriterio::cumple(const Rectangle rec)const{
     return diferencia(rec)>maxDif;
 
 }
-
+int MaxDifIntensityCriterio::betterChoice(
+		const Rectangle::Rectangle recs[],
+		const Rectangle::Rectangle recs2[],
+		int n){
+	double minDif, difAct;
+	int minIndex=0;
+	minDif=diferencia(recs[0])+diferencia(recs2[0]);
+	for(int i=1;i<n;i++){
+		difAct=diferencia(recs[i])+diferencia(recs2[i]);
+		if(difAct<minDif){
+			minIndex=i;
+			minDif=difAct;
+		}
+	}
+	return minIndex;
+}

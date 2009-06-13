@@ -41,7 +41,9 @@ void AlgorithmDialog::on_buttonBox_accepted()
 	}else{
 		CritType=CriterioFactory::MAX_VAR;
 	}
-
+	if(m_ui->BTreeRadio){
+		AlgoType=AlgorithmFactory::BTREE;
+	}
     father->exec(AlgoType, CritType, m_ui->MinSizeSpinBox->value(),
     		m_ui->MaxDifSpinBox->value(),
     		m_ui->PercentSpin->value());

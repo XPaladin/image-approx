@@ -59,12 +59,12 @@ void MainWindow::on_actionCargar_Imagen_triggered()
     */
 }
 
-void MainWindow::exec(AlgorithmFactory::AlgorithmEnum AlgotType,
+void MainWindow::exec(AlgorithmFactory::AlgorithmEnum AlgoType,
 		CriterioFactory::CriterioEnum CritType, int minSize,
 		int max, int ignore ){
     //image.convertToFormat(QImage::Format_RGB32);
         //printf("asdad Aca\n");
-    algorithm=new QuadTreeAlgorithm(
+    algorithm=AlgorithmFactory::getInstance()->createAlgorithm(AlgoType,
     		CriterioFactory::createCriterio(CritType,
     				image, max, ignore),
     		image->width(),image->height(),minSize);

@@ -11,7 +11,9 @@ protected:
 	bool invariante();
 	double varianza(const Rectangle::Rectangle r)const;
 public:
-	MaxVarIntensityCriterio(Image *image, int max_var):IntensityCriterio(img){
+		virtual int betterChoice(const Rectangle::Rectangle recs[],
+				const Rectangle::Rectangle recs2[], int n);
+        MaxVarIntensityCriterio(Image *image, int max_var):IntensityCriterio(image){
 		maxVar=max_var;
 
     }
