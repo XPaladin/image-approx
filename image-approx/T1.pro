@@ -5,7 +5,10 @@ QT += opengl \
     testlib
 TARGET = T1
 TEMPLATE = app
-SOURCES += MaxDifIntensityIgnoreCriterio.cpp \
+SOURCES += NetIteratorFactory.cpp \
+    BTreeLeafIter.cpp \
+    BTreeIter.cpp \
+    MaxDifIntensityIgnoreCriterio.cpp \
     CriterioFactory.cpp \
     AlgorithmFactory.cpp \
     PriorityQueue.cpp \
@@ -30,7 +33,10 @@ SOURCES += MaxDifIntensityIgnoreCriterio.cpp \
     QuadTreeLeafIter.cpp \
     MaxDifIntensityCriterio.cpp \
     Image.cpp
-HEADERS += MaxDifIntensityIgnoreCriterio.h \
+HEADERS += NetIteratorFactory.h \
+    BTreeLeafIter.h \
+    BTreeIter.h \
+    MaxDifIntensityIgnoreCriterio.h \
     CriterioFactory.h \
     AlgorithmFactory.h \
     PriorityQueue.h \
