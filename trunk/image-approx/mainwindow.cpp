@@ -68,8 +68,8 @@ void MainWindow::exec(AlgorithmFactory::AlgorithmEnum AlgoType,
     		CriterioFactory::createCriterio(CritType,
     				image, max, ignore),
     		image->width(),image->height(),minSize);
-    paintW->setIterator(new QuadTreeLeafIter(
-            (QuadTree *)algorithm->exec()));
+    paintW->setIterator(NetIteratorFactory::getInstance()->createNetLeafIterator(
+    		(QuadTree *)algorithm->exec()));
 
 
     //delete algor;
