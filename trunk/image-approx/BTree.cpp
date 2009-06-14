@@ -40,13 +40,19 @@ bool BTree::invariante()const{
         return false;
     }
     //cubran al padre
-    if(
-            Next[0]->getRectangle().getSO()==rectangle.getSO() &&
-            Next[1]->getRectangle().getNE()==rectangle.getNE() &&
-            ( Next[0]->getRectangle().getNO() == Next[1]->getRectangle().getSO()  ||
-              Next[0]->getRectangle().getSE() == Next[1]->getRectangle().getSO()
+    if(!(
+            //horizontal
+            ( Next[0]->getRectangle().getNE()==rectangle.getNE() &&
+              Next[1]->getRectangle().getSO()==rectangle.getSO() &&
+              Next[0]->getRectangle().getSO() == Next[1]->getRectangle().getNO() &&
+              Next[0]->getRectangle().getSE() == Next[1]->getRectangle().getNE() ) ||
+            //vertical
+            ( Next[0]->getRectangle().getSO()==rectangle.getSO() &&
+              Next[1]->getRectangle().getNE()==rectangle.getNE() &&
+              Next[0]->getRectangle().getSE() == Next[1]->getRectangle().getSO() &&
+              Next[0]->getRectangle().getNE() == Next[1]->getRectangle().getNO()
               )
-            ){
+            )){
         printf("cubran al padre\n");
         return false;
     }

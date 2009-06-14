@@ -26,7 +26,7 @@ public:
     		int maxDif, int ignore);
 
 private:
-    Algorithm *algorithm;
+    Net *net;
     PaintWidget *paintW;
     Image *image;
     Ui::MainWindow *ui;
@@ -34,6 +34,7 @@ private:
 
 
 private slots:
+    void on_actionGuardar_Malla_triggered();
     void on_actionAproximacion_triggered();
     void on_actionMalla_triggered();
     void on_actionGuardar_Imagen_triggered();
