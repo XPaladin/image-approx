@@ -10,14 +10,14 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    algorithm=0;
+    net=0;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    if(algorithm!=0)
-    	delete algorithm;
+    if(net!=0)
+        delete net;
 }
 
 void MainWindow::on_actionCargar_Imagen_triggered()
@@ -64,12 +64,12 @@ void MainWindow::exec(AlgorithmFactory::AlgorithmEnum AlgoType,
 		int max, int ignore ){
     //image.convertToFormat(QImage::Format_RGB32);
         //printf("asdad Aca\n");
-    algorithm=AlgorithmFactory::getInstance()->createAlgorithm(AlgoType,
+    net=AlgorithmFactory::getInstance()->createAlgorithm(AlgoType,
     		CriterioFactory::createCriterio(CritType,
     				image, max, ignore),
-    		image->width(),image->height(),minSize);
-    paintW->setIterator(NetIteratorFactory::getInstance()->createNetLeafIterator(
-    		(QuadTree *)algorithm->exec()));
+                image->width(),image->height(),minSize)->exec();
+
+    paintW->setIterator(NetIteratorFactory::getInstance()->createNetLeafIterator(net));
 
 
     //delete algor;
@@ -91,6 +91,22 @@ void MainWindow::on_actionGuardar_Imagen_triggered()
                 );
         if (filename != NULL){
                 imagen.save(filename);
+        }
+
+
+
+}
+void MainWindow::on_actionGuardar_Malla_triggered()
+{
+
+
+    QString filename = QFileDialog::getSaveFileName(
+                this,
+                "Elije un archivo previo o ingresa uno nuevo",
+                "/", ".malla"
+                );
+        if (filename != NULL){
+    //            NetSaver::save(NetIteratorFactory::getInstance()->createNetIterator(net),filename);
         }
 
 

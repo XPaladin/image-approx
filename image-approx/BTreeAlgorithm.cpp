@@ -30,14 +30,15 @@ bool BTreeAlgorithm::invariante()const{
 
 }
 void BTreeAlgorithm::exec(BTree *bt){
-	 if(bt->getRectangle().width()<=minSize &&
-	       bt->getRectangle().height()<=minSize){
-	       //     printf("No dividi :(");
-	    	return;
+    bool suficiente_ancho=bt->getRectangle().width()>minSize;
+    bool suficiente_alto=bt->getRectangle().height()>minSize;
+    if(!suficiente_ancho && !suficiente_alto ){
+        //     printf("No dividi :(");
+        return;
 
-	    }
-
-	    assert(bt->isLeaf());
+    }
+    assert(suficiente_ancho || suficiente_alto);
+    assert(bt->isLeaf());
 
 	    bool far=criterio->cumple(bt->getRectangle());
 
@@ -62,9 +63,16 @@ void BTreeAlgorithm::exec(BTree *bt){
                                 bt->getRectangle().getSO().getY()),
                                 bt->getRectangle().getNE());
 
-                bt->divide(p, bt->getRectangle().width()>minSize ||
-                                (criterio->betterChoice(recs,recs2,2)==0 &&
-                                bt->getRectangle().height()>minSize));
+                bool horizontal=criterio->betterChoice(recs,recs2,2)==0;
+                if(horizontal && !suficiente_alto){
+                    horizontal=false;
+                    assert(suficiente_ancho);
+                }
+                else if(!horizontal && !suficiente_ancho){
+                    horizontal=true;
+                    assert(suficiente_alto);
+                }
+                bt->divide(p, horizontal);
 
 	        assert(!bt->isLeaf());
 	        assert(bt->son(0)->isLeaf());

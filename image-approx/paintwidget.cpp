@@ -19,15 +19,15 @@ void PaintWidget::paintGL()
 	if(iter!=0 && (showAprox || showMalla)){
 		for(iter->first();!iter->isDone();iter->next()){
 			Shape *shape=iter->currentItem();
-			if(showMalla){
-				unsigned char negro[3]={0,0,0};
-				shape->setColor(negro);
-				shape->draw(img);
-			}
 			if(showAprox){
 				shape->calcColor(image);
 				shape->fill(img);
 			}
+                        if(showMalla){
+                                unsigned char negro[3]={0,0,0};
+                                shape->setColor(negro);
+                                shape->draw(img);
+                        }
 			delete shape;
 		}
 

@@ -41,6 +41,7 @@
      <string>Malla</string>
     </property>
     <addaction name="actionAplicar_Algoritmo"/>
+    <addaction name="actionGuardar_Malla"/>
    </widget>
    <widget class="QMenu" name="menuMostrar">
     <property name="title">
@@ -100,6 +101,11 @@
    </property>
    <property name="text">
     <string>Aproximacion</string>
+   </property>
+  </action>
+  <action name="actionGuardar_Malla">
+   <property name="text">
+    <string>Guardar Malla..</string>
    </property>
   </action>
  </widget>
