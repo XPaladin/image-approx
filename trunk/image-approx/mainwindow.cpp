@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     net=0;
+    image=0;
 }
 
 MainWindow::~MainWindow()
@@ -18,6 +19,8 @@ MainWindow::~MainWindow()
     delete ui;
     if(net!=0)
         delete net;
+    if(image!=0)
+    	delete image;
 }
 
 void MainWindow::on_actionCargar_Imagen_triggered()
