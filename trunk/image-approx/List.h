@@ -9,9 +9,11 @@ protected:
     Node<T> *f;
     Node<T> *l;
     Node<T> *curr;
+    int tamano;
 public:
 	List(){
 		curr=f=l=0;
+		tamano=0;
 	}
 	void append(T t){
 		Node<T> *aux=new Node<T>(t);
@@ -21,6 +23,7 @@ public:
             l->setNext(aux);
         }
         l=aux;
+        tamano++;
 
     };
 
@@ -37,8 +40,11 @@ public:
 	bool isDone(){
 		return curr==0;
 	}
-	bool empty(){
-		return f==0;
+	int size()const{
+		return tamano;
+	}
+	bool empty()const{
+		return tamano==0;
 	}
 	virtual ~List(){
 		Node<T> *aux=f;
@@ -50,6 +56,7 @@ public:
 		}
 		delete aux;
 		f=l=curr=0;
+		tamano=0;
 	}
 };
 

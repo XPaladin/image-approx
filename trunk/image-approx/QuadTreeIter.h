@@ -16,8 +16,10 @@ public:
 	virtual bool isDone();
     virtual void next();
     virtual void first();
+    virtual int size()const;
     virtual Rectangle::Rectangle *currentItem()const;
     QuadTreeIter(QuadTree *);
+    virtual ~QuadTreeIter();
 };
 
 #endif // QUADTREEITER_H

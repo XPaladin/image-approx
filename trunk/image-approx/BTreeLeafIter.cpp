@@ -7,6 +7,7 @@ BTreeLeafIter::BTreeLeafIter()
 
 BTreeLeafIter::~BTreeLeafIter()
 {
+
 }
 void BTreeLeafIter::agregar(BTree * bt){
     if(!bt->isLeaf()){

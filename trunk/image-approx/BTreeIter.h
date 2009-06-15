@@ -14,6 +14,7 @@ protected:
 	virtual void agregar(BTree * btree);
 public:
 	BTreeIter(BTree* btree);
+	virtual int size()const;
 	virtual bool isDone();
 	virtual void next();
 	virtual void first();

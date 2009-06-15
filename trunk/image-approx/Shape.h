@@ -10,6 +10,7 @@ protected:
 public:
     Shape();
     void setColor(const unsigned char color[3]);
+    virtual char *getColorCode()const;
     virtual void draw(Image *img)const=0;
     virtual void fill(Image *img)const=0;
     virtual int width() const=0;

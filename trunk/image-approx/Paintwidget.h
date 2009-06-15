@@ -17,7 +17,6 @@ protected:
 public:
     PaintWidget(Image *img, QWidget* parent = 0);
     void setIterator(NetIterator *_iter);
-    void repaint(){paintGL();}
     void paintGL();
     void resizeGL(int w, int h);
     void malla(){showMalla=!showMalla;}

@@ -7,6 +7,7 @@ BTreeIter::BTreeIter()
 
 BTreeIter::~BTreeIter()
 {
+	delete list;
 }
 
 BTreeIter::BTreeIter(BTree *btree){
@@ -25,6 +26,10 @@ void BTreeIter::first(){
 
 
 }
+int BTreeIter::size()const{
+    return list->size();
+}
+
 Rectangle * BTreeIter::currentItem()const{
     return list->currentItem()->getRectangle().clone();
 }
