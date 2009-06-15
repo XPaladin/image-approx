@@ -88,10 +88,10 @@ void MainWindow::on_actionGuardar_Imagen_triggered()
                 this,
                 "Elije un archivo previo o ingresa uno nuevo",
                 "/"
-                );
-        if (filename != NULL){
-                imagen.save(filename);
-        }
+    );
+    if (filename != NULL){
+    	imagen.save(filename);
+    }
 
 
 
@@ -105,9 +105,20 @@ void MainWindow::on_actionGuardar_Malla_triggered()
                 "Elije un archivo previo o ingresa uno nuevo",
                 "/", ".malla"
                 );
-        if (filename != NULL){
-    //            NetSaver::save(NetIteratorFactory::getInstance()->createNetIterator(net),filename);
-        }
+
+    if (filename != NULL){
+    	char *name=new char[filename.length()+1];
+    	for(int i=0;i<filename.length();i++){
+    		name[i]=filename.at(i).toAscii();
+    	}
+    	name[filename.length()]='\0';
+
+    	NetSaver::getInstance()->save(
+    			NetIteratorFactory::getInstance()->createNetIterator(net),
+    			image,
+    			name);
+    	delete name;
+    }
 
 
 

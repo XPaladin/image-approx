@@ -7,13 +7,19 @@ QuadTreeIter::QuadTreeIter()
 
 }
 QuadTreeIter::QuadTreeIter(QuadTree *_qt){
+	assert(_qt!=0);
     qt=_qt;
     list=new List<QuadTree *>();
+}
+QuadTreeIter::~QuadTreeIter(){
+	if(list!=0)
+    delete list;
 }
 bool QuadTreeIter::isDone(){
     return list->isDone();
 }
 void QuadTreeIter::next(){
+	assert(!isDone());
     list->next();
 }
 void QuadTreeIter::first(){
@@ -21,6 +27,9 @@ void QuadTreeIter::first(){
     list->first();
 
 
+}
+int QuadTreeIter::size()const{
+	return list->size();
 }
 Rectangle * QuadTreeIter::currentItem()const{
     return list->currentItem()->getRectangle().clone();

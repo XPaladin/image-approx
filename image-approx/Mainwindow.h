@@ -7,6 +7,7 @@
 #include "CriterioFactory.h"
 #include "AlgorithmFactory.h"
 #include "NetIteratorFactory.h"
+#include "NetSaver.h"
 #include <assert.h>
 
 namespace Ui

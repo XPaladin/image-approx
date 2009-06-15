@@ -7,7 +7,7 @@
 
 #include "QuadTreeAlgorithm.h"
 #include "EquiDivisionStrategy.h"
-#include "Util.h"
+
 
 QuadTreeAlgorithm::QuadTreeAlgorithm(Criterio *crit, int w,
                                      int h,int _minSize):Algorithm(crit){
