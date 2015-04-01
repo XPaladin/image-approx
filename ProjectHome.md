@@ -1,0 +1,1 @@
+Tarea que aproxima imagenes usando mallas de quadtrees y Btrees
